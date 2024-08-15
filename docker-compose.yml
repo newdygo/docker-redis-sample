@@ -1,16 +1,16 @@
 version: '3.4'
 
 services:
-  api:
-    image: ${DOCKER_REGISTRY-}docker-redis-sample
+  redis-sample-api:
+    image: ${DOCKER_REGISTRY-}redis-sample-api
     build:
       context: .
       dockerfile: Docker.Redis.Sample/Dockerfile
     ports:
       - "5000:443"
     depends_on:
-      - redis
-  redis:
+      - redis-search
+  redis-search:
    image: redislabs/redisearch:latest
    ports:
       - "6379:6379"
