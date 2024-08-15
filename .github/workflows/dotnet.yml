@@ -51,4 +51,4 @@ jobs:
         with:
           push-to-registry: true
           subject-digest: ${{ steps.push.outputs.digest }}
-          subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}
+          subject-name: ${{ secrets.REGISTRY }}/${{ secrets.IMAGE_NAME}}
