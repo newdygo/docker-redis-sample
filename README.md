@@ -3,6 +3,8 @@
 	e realizar busca de dados de forma flexível no Redis Search.
 </h1>
 
+[![redis sample](https://github.com/newdygo/docker-redis-sample/actions/workflows/dotnet.yml/badge.svg)](https://github.com/newdygo/docker-redis-sample/actions/workflows/dotnet.yml)
+
 ## 📋 Getting started with WinUI
 docker-compose up
 
