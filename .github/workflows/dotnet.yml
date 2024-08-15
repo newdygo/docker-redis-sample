@@ -42,8 +42,8 @@ jobs:
         with:
           context: .
           push: true
-          file: ./Dockerfile
           tags: ${{ steps.meta.outputs.tags }}
+          file: ./docker-redis-sample/Dockerfile
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Generate artifact attestation
