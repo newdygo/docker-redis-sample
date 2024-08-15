@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "docker-redis-sample": {
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "applicationUrl": "https://localhost:5001",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Local"
+      }
+    }
+  }
+}

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Docker.Redis.Sample", "Docker.Redis.Sample\Docker.Redis.Sample.csproj", "{3E6B5DE7-84A2-44B2-9812-287C861F84AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "docker-redis-sample", "docker-redis-sample\docker-redis-sample.csproj", "{3E6B5DE7-84A2-44B2-9812-287C861F84AF}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{457CD213-4702-4FA9-B85B-208CA1C1FB73}"
 EndProject

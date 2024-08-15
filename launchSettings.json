@@ -1,14 +1,14 @@
 {
   "profiles": {
-    "Start All": {
+    "start-all": {
       "commandName": "DockerCompose",
       "composeLaunchAction": "LaunchBrowser",
-      "composeLaunchServiceName": "dockerRedisSampleApi",
+      "composeLaunchServiceName": "redis-sample-api",
       "composeLaunchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
       "commandVersion": "1.0",
       "serviceActions": {
-        "redis": "StartWithoutDebugging",
-        "dockerRedisSampleApi": "StartDebugging"
+        "redis-sample-api": "StartDebugging",
+        "redis-search-composed-container": "StartWithoutDebugging"
       }
     }
   }
