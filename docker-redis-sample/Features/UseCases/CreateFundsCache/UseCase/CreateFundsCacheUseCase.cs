@@ -11,7 +11,8 @@ namespace Docker.Redis.Sample.Features.UseCases.CreateFundsCache.UseCase
         private readonly IDatabase _database;
         private readonly ILogger<CreateFundsCacheUseCase> _logger;
 
-        private List<string> FundsIndexCommandArgs = new List<string> {
+        private List<string> FundsIndexCommandArgs = new()
+        {
             "fund-index",
             "ON",
             "HASH",
@@ -56,8 +57,7 @@ namespace Docker.Redis.Sample.Features.UseCases.CreateFundsCache.UseCase
         public async Task<bool> Handle(CreateFundsCacheInput request, CancellationToken cancellationToken)
         {
             var updatedDate = $"{DateTime.Now:o}";
-            var funds = JsonSerializer.Deserialize<IEnumerable<Fund>>(Properties.Resources.funds);
-
+            
             try
             {
                 await _database.ExecuteAsync("FT.CREATE", FundsIndexCommandArgs.ToArray());
@@ -66,7 +66,7 @@ namespace Docker.Redis.Sample.Features.UseCases.CreateFundsCache.UseCase
             {
             }
 
-            foreach (var fund in funds ?? new List<Fund>())
+            foreach (var fund in request.Funds ?? new List<Fund>())
             {
                 try
                 {

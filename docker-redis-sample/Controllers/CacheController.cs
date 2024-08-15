@@ -22,8 +22,8 @@ namespace Redis.Search.Controllers
         [Route("funds-cache")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
-        public async Task<IActionResult> GetFundsAsync(
-            [FromQuery] CreateFundsCacheInput input,
+        public async Task<IActionResult> CreateFundsAsync(
+            [FromBody] CreateFundsCacheInput input,
             CancellationToken cancellationToken)
         {
             await _mediator.Send(input, cancellationToken);
