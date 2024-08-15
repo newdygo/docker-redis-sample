@@ -45,10 +45,3 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           file: ./docker-redis-sample/Dockerfile
           labels: ${{ steps.meta.outputs.labels }}
-
-      - name: Generate artifact attestation
-        uses: actions/attest-build-provenance@v1
-        with:
-          push-to-registry: true
-          subject-digest: ${{ steps.push.outputs.digest }}
-          subject-name: ${{ secrets.REGISTRY }}/${{ secrets.IMAGE_NAME}}
