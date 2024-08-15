@@ -34,7 +34,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
-          images: ionit/baldu-repository
+          images: ionit/baldu-repository/docker-simple
 
       - name: Build and push Docker image
         id: push
@@ -42,6 +42,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.IMAGE_NAME}}
+          tags: ${{ steps.meta.outputs.tags }}
           file: ./docker-redis-sample/Dockerfile
           labels: ${{ steps.meta.outputs.labels }}
