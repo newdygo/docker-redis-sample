@@ -42,6 +42,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ${{ secrets.IMAGE_NAME}}
           file: ./docker-redis-sample/Dockerfile
           labels: ${{ steps.meta.outputs.labels }}
