@@ -34,9 +34,8 @@ jobs:
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
+          tags: docker-simple:latest
           images: ionit/baldu-repository
-          args: baldu-repository/docker-simple
-          tags: baldu-repository/docker-simple
 
       - name: Build and push Docker image
         id: push
