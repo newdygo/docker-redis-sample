@@ -27,6 +27,7 @@ namespace Docker.Redis.Sample.Features.UseCases.GetFunds.UseCase.v1
                 QueryText = request.QueryText,
                 Return = new ReturnFields(request.Select.Split(","))
             };
+            
             var redisResults = await _database.Connection.SearchAsync<GetFundsOutput>(redisQuery);
 
             return redisResults.Documents.Select(fund => fund.Value);

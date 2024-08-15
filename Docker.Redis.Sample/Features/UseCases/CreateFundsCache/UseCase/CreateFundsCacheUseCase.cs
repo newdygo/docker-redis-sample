@@ -11,6 +11,40 @@ namespace Docker.Redis.Sample.Features.UseCases.CreateFundsCache.UseCase
         private readonly IDatabase _database;
         private readonly ILogger<CreateFundsCacheUseCase> _logger;
 
+        private List<string> FundsIndexCommandArgs = new List<string> {
+            "fund-index",
+            "ON",
+            "HASH",
+            "PREFIX",
+            "1",
+            "fund:",
+            "SCHEMA",
+            "id",
+            "TAG",
+            "SORTABLE",
+            "name",
+            "TEXT",
+            "SORTABLE",
+            "class",
+            "TEXT",
+            "NOINDEX",
+            "start",
+            "TEXT",
+            "NOINDEX",
+            "manager",
+            "TEXT",
+            "NOINDEX",
+            "fundType",
+            "TEXT",
+            "NOINDEX",
+            "updatedDate",
+            "TEXT",
+            "NOINDEX",
+            "administrator",
+            "TEXT",
+            "NOINDEX"
+        };
+
         public CreateFundsCacheUseCase(
             IDatabase database,
             ILogger<CreateFundsCacheUseCase> logger)
@@ -24,10 +58,19 @@ namespace Docker.Redis.Sample.Features.UseCases.CreateFundsCache.UseCase
             var updatedDate = $"{DateTime.Now:o}";
             var funds = JsonSerializer.Deserialize<IEnumerable<Fund>>(Properties.Resources.funds);
 
+            try
+            {
+                await _database.ExecuteAsync("FT.CREATE", FundsIndexCommandArgs.ToArray());
+            }
+            catch
+            {
+            }
+
             foreach (var fund in funds ?? new List<Fund>())
             {
                 try
                 {
+                    
                     await _database.HashSetAsync($"fund:{fund.Id}", new HashEntry[]
                     {
                         new HashEntry("updatedDate", updatedDate),
