@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  dockerRedisSample:
+    image: ${DOCKER_REGISTRY-}docker-redis-sample
+    build:
+      context: .
+      dockerfile: Docker.Redis.Sample/Dockerfile
+  redis:
+   image: redislabs/redisearch:latest
